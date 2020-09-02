@@ -1,12 +1,24 @@
 <template>
   <div id="nav">
-    <router-link to="/" class="logo">HOME</router-link>
+    <button @click="toHomePage" class="logo">HOME</button>
   </div>
 </template>
 
 <script>
 
-export default {};
+export default {
+  methods: {
+    toHomePage() {
+      // if(this.$router.history.current.name == "Home") {
+      //   this.$router.go()
+      // }
+      // else {
+      //   this.$router.push('/')
+      // }{
+      this.$router.push('/')
+    }
+  }
+};
 </script>
 
 <style>
