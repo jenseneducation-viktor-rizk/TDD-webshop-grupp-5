@@ -1,7 +1,8 @@
-import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
+import { shallowMount, createLocalVue } from "@vue/test-utils";
 import Nav from "@/components/Nav.vue";
 import VueRouter from "vue-router";
 import routes from "@/router/default.routes.js";
+
 
 describe("Nav.vue", () => {
   it("should stay at the home page when clicking on the logo", () => {
@@ -23,18 +24,15 @@ describe("Nav.vue", () => {
     const router = new VueRouter({ routes });
     localVue.use(VueRouter);
 
-    const $route = { path: "http://localhost:8080/" };
-
     const wrapper = shallowMount(Nav, {
       localVue,
       router,
-      stubs: ['router-link', 'router-view']
     });
-    // console.log(wrapper.vm.$route)
 
     await router.push("/product");
     await wrapper.vm.$nextTick()
-    wrapper.find(".logo").trigger("click");
+    const button = wrapper.find('.logo')
+    await button.trigger('click')
 
     expect(wrapper.vm.$route.name).toBe("Home");
   });
