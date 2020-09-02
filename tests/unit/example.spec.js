@@ -1,12 +1,26 @@
-import { shallowMount } from '@vue/test-utils'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
+import Nav from '@/components/Nav.vue'
 
-describe('HelloWorld.vue', () => {
-  it('renders props.msg when passed', () => {
-    const msg = 'new message'
-    const wrapper = shallowMount(HelloWorld, {
-      propsData: { msg }
+describe('Nav.vue', () => {
+  it('should reload the home page when clicking on the logo', () => {
+    const $route = { path: 'http://localhost:8080/' }
+
+    const wrapper = shallowMount(Nav, {
+      mocks: {
+        $route
+      }
     })
-    expect(wrapper.text()).toMatch(msg)
+
+    wrapper.find('.logo').trigger('click')
+
+    expect(wrapper.vm.$route.path).toBe($route.path)
   })
+
+  // it('should route from the product page to the home page when clicking on the logo', () => {
+  //   const msg = 'new message'
+  //   const wrapper = shallowMount(Product, {
+  //     propsData: { msg }
+  //   })
+  //   expect(wrapper.text()).toMatch(msg)
+  // })
 })
