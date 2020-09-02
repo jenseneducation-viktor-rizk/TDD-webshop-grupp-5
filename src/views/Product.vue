@@ -1,5 +1,20 @@
 <template>
   <div class="product">
-    <h1>This is an product page</h1>
+    <Nav/>
   </div>
 </template>
+
+
+<script>
+import Nav from '@/components/Nav.vue'
+export default {
+  components: {
+    Nav
+  }
+
+}
+</script>
+
+<style>
+
+</style>
