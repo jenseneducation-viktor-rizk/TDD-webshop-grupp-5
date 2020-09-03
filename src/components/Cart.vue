@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cart">
     <div class="cart-item">
       <select v-model="amount" name="amount" class="amount">
         <option value="1">1</option>

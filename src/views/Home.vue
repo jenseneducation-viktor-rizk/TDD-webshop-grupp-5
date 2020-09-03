@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <Nav/>
-    <Cart />
+    <Nav @cart-btn-clicked="toggleCart" />
+    <Cart class="cart" v-show="cartVisible"/>
   </div>
 </template>
 
@@ -12,6 +12,16 @@ import Cart from '@/components/Cart.vue'
 
 export default {
   name: 'Home',
-  components: { Nav, Cart }
+  data() {return{
+    cartVisible: false
+  }},
+  components: {
+    Nav, Cart
+  },
+  methods: {
+    toggleCart() {
+      this.cartVisible = !this.cartVisible
+    }
+  }
 }
 </script>
