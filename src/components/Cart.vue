@@ -1,21 +1,19 @@
 <template>
   <div class="cart">
     <div class="cart-item">
-      <select v-model="amount" name="amount" class="amount">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
+    <Dropdown :options="quantity" :preSelected="itemQuant" />
     </div>
   </div>
 </template>
 
 <script>
+import Dropdown from "@/components/Dropdown.vue"
 export default {
+  components: { Dropdown },
   data() {
     return {
-      amount: "1",
+      itemQuant: "1",
+      quantity: ["1", "2", "3", "4"]
     };
   },
 };
