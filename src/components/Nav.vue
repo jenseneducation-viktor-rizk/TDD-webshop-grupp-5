@@ -1,24 +1,27 @@
 <template>
   <div id="nav">
-    <button @click="toHomePage" class="logo">HOME</button>
+    <Logo  @logo-clicked="toHomePage"/>
   </div>
 </template>
 
 <script>
+import Logo from '@/components/Logo.vue'
 
 export default {
+  components: {
+    Logo
+  },
   methods: {
     toHomePage() {
-      // if(this.$router.history.current.name == "Home") {
-      //   this.$router.go()
-      // }
-      // else {
-      //   this.$router.push('/')
-      // }{
-      this.$router.push('/')
-    }
+      if(this.$router.history.current.name == "Home") {
+        this.$router.go()
+      }
+      else {
+        this.$router.push('/')
+      }
   }
-};
+}}
+
 </script>
 
 <style>
