@@ -1,14 +1,17 @@
 import { shallowMount } from "@vue/test-utils";
-import Product from "@/components/Product.vue";
 
-// Som användare vill jag kunna se priset på produkten så att jag vet vad den kostar.
+import Cart from "@/components/Cart";
 
-it("should show the price at the home page", () => {
-  const wrapper = shallowMount(Product, {
-    propsData: {
-      price: 150,
-    },
+describe("Cart.vue", () => {
+  it("should be able to change amount of a product", async () => {
+    const wrapper = shallowMount(Cart);
+
+    const amount = wrapper.find(".amount").findAll("option");
+
+    await amount.at(0).setSelected();
+    expect(wrapper.vm.amount).toBe("1");
+
+    await amount.at(2).setSelected();
+    expect(wrapper.vm.amount).toBe("3");
   });
-  let actual = wrapper.find(".price").text();
-  expect(actual).toBe("150");
 });
