@@ -1,17 +1,21 @@
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, mount } from "@vue/test-utils";
 
-import Cart from "@/components/Cart";
+import Dropdown from "@/components/Dropdown";
 
-describe("Cart.vue", () => {
+describe("Dropdown.vue", () => {
   it("should be able to change amount of a product", async () => {
-    const wrapper = shallowMount(Cart);
+    const wrapper = mount(Dropdown, {
+      propsData: {
+        options: ["1", "2", "3", "4"],
+        preSelected: "1"
+      }
+    });
 
     const amount = wrapper.find(".amount").findAll("option");
-
     await amount.at(0).setSelected();
-    expect(wrapper.vm.amount).toBe("1");
+    expect(wrapper.vm.selected).toBe("1");
 
     await amount.at(2).setSelected();
-    expect(wrapper.vm.amount).toBe("3");
+    expect(wrapper.vm.selected).toBe("3");
   });
 });
