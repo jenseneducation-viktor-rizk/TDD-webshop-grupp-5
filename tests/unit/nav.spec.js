@@ -6,22 +6,8 @@ import routes from "@/router/default.routes.js";
 
 
 describe("Nav.vue", () => {
-  // it("should stay at the home page when clicking on the logo", async () => {
-   
-  //   const $route = { path: "http://localhost:8080/" };
-  //   const wrapper = shallowMount(Nav, {
-  //     mocks: {
-  //       $route
-  //     },
-  //   });
 
-  //   wrapper.find('Logo-stub').vm.$emit('clicked');
-  //   await wrapper.vm.$nextTick()
-
-  //   expect(wrapper.vm.$route.path).toBe($route.path);
-  // });
-
-  it("should route from the product page to the home page when clicking on the logo", async () => {
+  it("should route from any page to the home page when clicking on the logo", async () => {
     const localVue = createLocalVue();
     const router = new VueRouter({ routes });
     localVue.use(VueRouter);
