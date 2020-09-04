@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="price">{{ price }}</div>
-    <div class="name">{{ name }}</div>
     <img class="image" :src="image" />
+    <div class="name">{{ name }}</div>
+    <div class="price">{{ price }}</div>
   </div>
 </template>
 
