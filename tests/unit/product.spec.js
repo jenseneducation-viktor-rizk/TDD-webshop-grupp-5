@@ -22,3 +22,13 @@ it("should show the product name at the home page", () => {
   let actual = wrapper.find(".name").text();
   expect(actual).toBe("Tshirt");
 });
+
+it("should show all the products at the home page", () => {
+  const wrapper = shallowMount(Product, {
+    propsData: {
+      name: "Tshirt",
+    },
+  });
+  let actual = wrapper.find(".name").text();
+  expect(actual).toBe("Tshirt");
+});
