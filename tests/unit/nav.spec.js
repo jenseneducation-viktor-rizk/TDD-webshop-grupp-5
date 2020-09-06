@@ -3,6 +3,8 @@ import Home from "@/views/Home.vue";
 import Nav from "@/components/Nav.vue";
 import VueRouter from "vue-router";
 import routes from "@/router/default.routes.js";
+import store from '@/store/index.js'
+
 
 describe("Nav.vue", () => {
   it("should route from any page to the home page when clicking on the logo", async () => {
@@ -24,9 +26,12 @@ describe("Nav.vue", () => {
   });
 });
 
-describe("Cart.vue", () => {
+describe("Cart.vue in Home", () => {
+  
   it("should be invisible when rendered", async () => {
-    let home = shallowMount(Home);
+    let home = shallowMount(Home, {
+      store
+    });
     let cart = home.find(".cart");
 
     let cartVisible = cart.element.style.display !== "none";
@@ -34,7 +39,9 @@ describe("Cart.vue", () => {
   });
 
   it("should be visible when cart-button is clicked", async () => {
-    let wrapper = shallowMount(Home);
+    let wrapper = shallowMount(Home, {
+      store
+    });
     let cart = wrapper.find(".cart");
 
     wrapper.find("Nav-stub").vm.$emit("cart-btn-clicked");
