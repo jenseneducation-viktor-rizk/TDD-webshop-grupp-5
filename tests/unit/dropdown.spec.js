@@ -2,6 +2,10 @@ import { shallowMount, mount } from "@vue/test-utils";
 import Dropdown from "@/components/Dropdown";
 
 describe("Dropdown.vue", () => {
+  it("should be able to switch size in the filter", () => {
+    
+
+  })
   it("should be able to switch size of the product", async () => {
     const wrapper = mount(Dropdown, {
       propsData: {
