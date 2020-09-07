@@ -1,28 +1,33 @@
 <template>
   <div class="product">
     <Nav />
-    <Size :myProduct="products[this.myId]" />
-    <Color :color="products[this.myId].color" />
+    <ProductItem 
+      :price="product.price"
+      :name="product.name"
+      :image="require('@/assets/' + product.image)"
+      :imgHeight="'500px'"/> 
+    <Size :myProduct="product" />
+    <Color :color="product.color" />
   </div>
 </template>
 
 
 <script>
 import Nav from '@/components/Nav.vue'
+import ProductItem from '@/components/ProductItem.vue'
 import Size from '@/components/Size.vue'
 import Color from '@/components/Color.vue'
-import { mapGetters } from 'vuex'
 
 export default {
   data(){return{
-    myId: 1
+    product: {}
   }},
   components: {
-    Nav, Size, Color
+    Nav, Size, Color, ProductItem
   },
-  computed: {
-    ...mapGetters(["products"]),
-  } 
+  created() {
+    this.product = this.$store.getters.product(this.$route.params.id)
+  }
 }
 
 </script>

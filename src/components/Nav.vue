@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
   #nav {
-    padding: 10px;
+    padding: 5px 20px 5px 20px;
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     justify-content: center;
