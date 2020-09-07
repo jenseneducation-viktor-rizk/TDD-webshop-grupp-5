@@ -1,4 +1,4 @@
-const { mount, createLocalVue, shallowMount } = require("@vue/test-utils");
+const { mount, createLocalVue } = require("@vue/test-utils");
 import Vuex from "vuex";
 import Home from "@/views/Home.vue";
 import ProductItem from "@/components/ProductItem.vue";
