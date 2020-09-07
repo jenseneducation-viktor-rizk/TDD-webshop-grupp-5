@@ -2,7 +2,7 @@
   <div id="nav">
     <p>search</p>
     <Logo @clicked="toHomePage" />
-    <CartButton @clicked="$emit('cart-btn-clicked')"/>
+    <CartButton @clicked="$emit('cart-btn-clicked')" />
   </div>
 </template>
 

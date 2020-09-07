@@ -13,7 +13,7 @@ export default new Vuex.Store({
           "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdistributor.golding.eu%2Ft-shirt%2F120137--kariban-t-shirt-forest-green-2xl-ka356fo-5&psig=AOvVaw0i3eTjcnXkaIv4sLgV32mZ&ust=1599286778755000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNjD19TtzusCFQAAAAAdAAAAABAK",
         price: 150,
         sizes: ["S", "M", "L"],
-        color: ["Black", "Blue", "White"]
+        color: "Black"
       },
       {
         id: 2,
@@ -21,7 +21,7 @@ export default new Vuex.Store({
         image:
           "https://www.google.com/url?sa=i&url=https%3A%2F%2Fdistributor.golding.eu%2Ft-shirt%2F120137--kariban-t-shirt-forest-green-2xl-ka356fo-5&psig=AOvVaw0i3eTjcnXkaIv4sLgV32mZ&ust=1599286778755000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCNjD19TtzusCFQAAAAAdAAAAABAK",
         price: 150,
-        sizes: ["S", "M", "L"],
+        sizes: ["S", "M", "L", "XL"],
         color: ["Black", "Blue", "White"]
       },
       {
