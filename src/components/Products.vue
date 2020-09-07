@@ -6,6 +6,7 @@
       :price="product.price"
       :name="product.name"
       :image="product.image"
+      :imgHeight="'300px'"
     />
   </div>
 </template>
@@ -23,5 +24,6 @@ export default {
 </script>
 
 
-<style>
+<style lang='scss'>
+
 </style>
