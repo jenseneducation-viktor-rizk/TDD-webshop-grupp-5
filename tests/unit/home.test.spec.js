@@ -21,7 +21,7 @@ it("should check if the products component is in home-view", () => {
   expect(actual).toBe(expected);
 });
 
-it("should show the search-component is in home-view", () => {
+it("should show the search-component in home-view", () => {
   const localVue = createLocalVue();
   const wrapper = shallowMount(Home, {
     store,

@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Nav @cart-btn-clicked="toggleCart" />
-    <Search @search-text-updated="filterProducts" />
+    <Search @search-text-updated="searchProducts" />
     <Products
       class="products"
       :selectedSize="selectedSize"
@@ -44,9 +44,9 @@ export default {
     toggleCart() {
       this.cartVisible = !this.cartVisible;
     },
-    filterProducts(searchTerm) {
-      this.filteredProducts = this.products.filter((product) =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    searchProducts(searchTerm) {
+      this.filteredProducts = this.products.filter((p) =>
+        p.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     },
   },
