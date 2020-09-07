@@ -2,7 +2,8 @@
   <div class="home">
     <Nav @cart-btn-clicked="toggleCart" />
     <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
-    <Products class="products" :products="products" />
+    <FilterProducts />
+    <Products class="products" :products="products" :selectedSize="selectedSize" />
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 import Nav from "@/components/Nav.vue";
 import Cart from "@/components/Cart.vue";
 import Products from "@/components/Products.vue";
+import FilterProducts from "@/components/FilterProducts.vue"
 import { mapGetters } from "vuex";
 
 export default {
@@ -18,6 +20,7 @@ export default {
   data() {
     return {
       cartVisible: false,
+      selectedSize: ""
     };
   },
   computed: {
@@ -27,6 +30,7 @@ export default {
     Nav,
     Cart,
     Products,
+    FilterProducts
   },
   methods: {
     toggleCart() {

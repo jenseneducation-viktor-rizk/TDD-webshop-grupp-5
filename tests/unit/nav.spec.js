@@ -85,7 +85,8 @@ describe("Nav.vue", () => {
       localVue,
       router,
       propsData: {
-        products: listOfProducts
+        products: listOfProducts,
+        selectedSize: ""
       }
     });
 
