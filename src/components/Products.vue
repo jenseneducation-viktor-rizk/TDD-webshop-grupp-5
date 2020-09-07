@@ -19,6 +19,9 @@ export default {
   props: {
     products: Array,
   },
+  computed: {
+    
+  },
   components: {
     ProductItem,
   },

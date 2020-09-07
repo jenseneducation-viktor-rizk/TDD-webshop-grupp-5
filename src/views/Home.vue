@@ -3,6 +3,7 @@
     <Nav @cart-btn-clicked="toggleCart" />
     <Cart class="cart" v-show="cartVisible" />
     <Products class="products" :products="products" />
+    <FilterProducts />
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 import Nav from "@/components/Nav.vue";
 import Cart from "@/components/Cart.vue";
 import Products from "@/components/Products.vue";
+import FilterProducts from "@/components/FilterProducts.vue"
 import { mapGetters } from "vuex";
 
 export default {
@@ -27,6 +29,7 @@ export default {
     Nav,
     Cart,
     Products,
+    FilterProducts
   },
   methods: {
     toggleCart() {
