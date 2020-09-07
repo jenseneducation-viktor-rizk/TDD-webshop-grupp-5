@@ -1,6 +1,7 @@
 <template>
   <div>
-    <img class="image" :src="image" />
+    <img class="image" :height="imgHeight"
+    :src="require('../assets/' + image)" />
     <div class="name">{{ name }}</div>
     <div class="price">{{ price }}</div>
   </div>
@@ -12,6 +13,7 @@ export default {
     price: Number,
     name: String,
     image: String,
+    imgHeight: String
   },
 };
 </script>
