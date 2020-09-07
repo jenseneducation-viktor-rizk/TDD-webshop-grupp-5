@@ -2,8 +2,8 @@
   <div class="home">
     <Nav @cart-btn-clicked="toggleCart" />
     <Cart class="cart" v-show="cartVisible" />
-    <Products class="products" :products="products" :selectedSize="selectedSize" />
     <FilterProducts />
+    <Products class="products" :products="products" :selectedSize="selectedSize" />
   </div>
 </template>
 
