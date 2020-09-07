@@ -1,18 +1,37 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Nav @cart-btn-clicked="toggleCart" />
+    <Cart class="cart" v-show="cartVisible" />
+    <Products class="products" :products="products" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import Nav from "@/components/Nav.vue";
+import Cart from "@/components/Cart.vue";
+import Products from "@/components/Products.vue";
+import { mapGetters } from "vuex";
 
 export default {
-  name: 'Home',
+  name: "Home",
+  data() {
+    return {
+      cartVisible: false,
+    };
+  },
+  computed: {
+    ...mapGetters(["products"]),
+  },
   components: {
-    HelloWorld
-  }
-}
+    Nav,
+    Cart,
+    Products,
+  },
+  methods: {
+    toggleCart() {
+      this.cartVisible = !this.cartVisible;
+    },
+  },
+};
 </script>
