@@ -11,7 +11,7 @@ export default new Vuex.Store({
         name: "Epic cats with lazers",
         image: "black.jpg",
         price: 150,
-        sizes: ["S", "M", "L"],
+        sizes: ["S", "M"],
         color: 'black'
       },
       {
@@ -19,7 +19,7 @@ export default new Vuex.Store({
         name: "Tupac print",
         image: "black_2.jpg",
         price: 200,
-        sizes: ["S", "M", "L"],
+        sizes: ["S", "L"],
         color: 'black'
       },
       {
@@ -43,7 +43,7 @@ export default new Vuex.Store({
         name: "White shirt with print",
         image: "white.jpg",
         price: 250,
-        sizes: ["S", "M", "L"],
+        sizes: ["S", "M", "L", "XL"],
         color: 'white'
       },
       {
@@ -51,7 +51,7 @@ export default new Vuex.Store({
         name: "Print of shirt",
         image: "yellow.jpg",
         price: 150,
-        sizes: ["S", "M", "L"],
+        sizes: ["L", "XL"],
         color: 'yellow'
       },
     ],

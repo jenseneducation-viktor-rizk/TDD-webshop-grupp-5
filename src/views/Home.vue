@@ -2,7 +2,7 @@
   <div class="home">
     <Nav @cart-btn-clicked="toggleCart" />
     <Cart class="cart" v-show="cartVisible" />
-    <Products class="products" :products="products" />
+    <Products class="products" :products="products" :selectedSize="selectedSize" />
     <FilterProducts />
   </div>
 </template>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       cartVisible: false,
+      selectedSize: ""
     };
   },
   computed: {

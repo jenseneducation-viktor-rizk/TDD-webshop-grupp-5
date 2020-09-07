@@ -2,7 +2,7 @@
   <div class="productsContainer">
     <ProductItem
       @click.native="$router.push('/product/' + product.id)"
-      v-for="product in products"
+      v-for="product in filteredProducts"
       :key="product.id"
       :class="'item-' + product.id"
       :price="product.price"
@@ -10,6 +10,7 @@
       :image="require('@/assets/' + product.image)"
       :imgHeight="'250px'"
     />
+    
   </div>
 </template>
 
@@ -18,8 +19,16 @@ import ProductItem from "./ProductItem.vue";
 export default {
   props: {
     products: Array,
+    selectedSize: String
   },
   computed: {
+    filteredProducts() {
+      if(this.selectedSize == "") {
+        return this.products
+      }else{
+      return this.products.filter(shirt => shirt.sizes.some(size => size === this.selectedSize))}
+      
+    }
     
   },
   components: {
