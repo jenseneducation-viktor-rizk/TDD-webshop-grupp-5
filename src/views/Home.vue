@@ -3,9 +3,13 @@
     <Nav @cart-btn-clicked="toggleCart" />
     <Search @search-text-updated="filterProducts" />
     <Cart class="cart" v-show="cartVisible" />
-    <Products class="products" :products="filteredProducts !== null ? filteredProducts : products" />
 
     <FilterProducts />
+    <Products
+      class="products"
+      :selectedSize="selectedSize"
+      :products="filteredProducts !== null ? filteredProducts : products"
+    />
   </div>
 </template>
 

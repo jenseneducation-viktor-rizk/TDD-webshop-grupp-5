@@ -10,7 +10,6 @@
       :image="require('@/assets/' + product.image)"
       :imgHeight="'250px'"
     />
-    
   </div>
 </template>
 
@@ -19,17 +18,18 @@ import ProductItem from "./ProductItem.vue";
 export default {
   props: {
     products: Array,
-    selectedSize: String
+    selectedSize: String,
   },
   computed: {
     filteredProducts() {
-      if(this.selectedSize == "") {
-        return this.products
-      }else{
-      return this.products.filter(shirt => shirt.sizes.some(size => size === this.selectedSize))}
-      
-    }
-    
+      if (this.selectedSize == "") {
+        return this.products;
+      } else {
+        return this.products.filter((shirt) =>
+          shirt.sizes.some((size) => size === this.selectedSize)
+        );
+      }
+    },
   },
   components: {
     ProductItem,
@@ -39,24 +39,24 @@ export default {
 
 
 <style lang='scss' scoped>
-  .productsContainer {
-    display: grid;
-    grid-template-columns: 1fr;
-    .product-item {
-      &:hover {
-        cursor: pointer;
-      }
-      margin: 20px 5px 0 5px
+.productsContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  .product-item {
+    &:hover {
+      cursor: pointer;
     }
+    margin: 20px 5px 0 5px;
   }
-  @media only screen and (min-width: 600px) {
-    .productsContainer {
-      grid-template-columns: 1fr 1fr;
-      }
-  } 
-  @media only screen and (min-width: 800px) {
-    .productsContainer {
-      grid-template-columns: repeat(3, 1fr);
-      }
-  } 
+}
+@media only screen and (min-width: 600px) {
+  .productsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .productsContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
