@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="product-item">
     <img class="image" :height="imgHeight"
     :src="image" />
     <div class="name">{{ name }}</div>

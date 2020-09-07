@@ -4,6 +4,8 @@
     <Search @search-text-updated="filterProducts" />
     <Cart class="cart" v-show="cartVisible" />
     <Products class="products" :products="filteredProducts !== null ? filteredProducts : products" />
+
+    <FilterProducts />
   </div>
 </template>
 
@@ -12,6 +14,7 @@
 import Nav from "@/components/Nav.vue";
 import Cart from "@/components/Cart.vue";
 import Products from "@/components/Products.vue";
+import FilterProducts from "@/components/FilterProducts.vue";
 import { mapGetters } from "vuex";
 import Search from "@/components/Search.vue";
 
@@ -21,6 +24,7 @@ export default {
     return {
       cartVisible: false,
       filteredProducts: null,
+      selectedSize: "",
     };
   },
   computed: {
@@ -31,6 +35,7 @@ export default {
     Cart,
     Products,
     Search,
+    FilterProducts,
   },
   methods: {
     toggleCart() {

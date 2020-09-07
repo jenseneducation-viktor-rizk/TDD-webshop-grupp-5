@@ -11,16 +11,16 @@ export default new Vuex.Store({
         name: "Epic cats with lazers",
         image: "black.jpg",
         price: 150,
-        sizes: ["S", "M", "L"],
-        color: 'black'
+        sizes: ["S", "M"],
+        color: "black",
       },
       {
         id: 2,
         name: "Tupac print",
         image: "black_2.jpg",
         price: 200,
-        sizes: ["S", "M", "L"],
-        color: 'black'
+        sizes: ["S", "L"],
+        color: "black",
       },
       {
         id: 3,
@@ -28,7 +28,7 @@ export default new Vuex.Store({
         image: "grey.jpg",
         price: 250,
         sizes: ["S", "M", "L"],
-        color: 'grey'
+        color: "grey",
       },
       {
         id: 4,
@@ -36,29 +36,32 @@ export default new Vuex.Store({
         image: "red.jpg",
         price: 100,
         sizes: ["S", "M", "L"],
-        color: 'red'
+        color: "red",
       },
       {
         id: 5,
         name: "White shirt with print",
         image: "white.jpg",
         price: 250,
-        sizes: ["S", "M", "L"],
-        color: 'white'
+        sizes: ["S", "M", "L", "XL"],
+        color: "white",
       },
       {
         id: 6,
         name: "Print of shirt",
         image: "yellow.jpg",
         price: 150,
-        sizes: ["S", "M", "L"],
-        color: 'yellow'
+        sizes: ["L", "XL"],
+        color: "yellow",
       },
     ],
   },
   getters: {
     products(state) {
       return state.listOfProducts;
+    },
+    product: (state) => (id) => {
+      return state.listOfProducts.find((item) => item.id == id);
     },
   },
   mutations: {},
