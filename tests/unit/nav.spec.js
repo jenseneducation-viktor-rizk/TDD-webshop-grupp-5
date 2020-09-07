@@ -121,4 +121,18 @@ describe("Cart.vue in Home", () => {
     let cartVisible = cart.element.style.display !== "none";
     expect(cartVisible).toBe(true);
   });
+  it("should be invisible when x-button is clicked", async () => {
+    let wrapper = shallowMount(Home, {
+      store
+    });
+    let cart = wrapper.find(".cart");
+
+    wrapper.find("Nav-stub").vm.$emit("cart-btn-clicked");
+    await wrapper.vm.$nextTick();
+    wrapper.find("Cart-stub").vm.$emit("cart-btn-clicked");
+    await wrapper.vm.$nextTick();
+
+    let cartVisible = cart.element.style.display !== "none";
+    expect(cartVisible).toBe(false);
+  });
 });

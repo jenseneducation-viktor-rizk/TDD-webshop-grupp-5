@@ -2,14 +2,13 @@
   <div class="home">
     <Nav @cart-btn-clicked="toggleCart" />
     <Search @search-text-updated="filterProducts" />
-    <Cart class="cart" v-show="cartVisible" />
-
-    <FilterProducts />
     <Products
       class="products"
       :selectedSize="selectedSize"
       :products="filteredProducts !== null ? filteredProducts : products"
     />
+    <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
+    <FilterProducts />
   </div>
 </template>
 
