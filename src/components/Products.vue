@@ -5,7 +5,7 @@
       :key="product.id"
       :price="product.price"
       :name="product.name"
-      :image="product.image"
+      :image="require('@/assets/' + product.image)"
       :imgHeight="'300px'"
     />
   </div>

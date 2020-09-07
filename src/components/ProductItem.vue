@@ -1,7 +1,7 @@
 <template>
   <div>
     <img class="image" :height="imgHeight"
-    :src="require('../assets/' + image)" />
+    :src="image" />
     <div class="name">{{ name }}</div>
     <div class="price">{{ price }}</div>
   </div>
