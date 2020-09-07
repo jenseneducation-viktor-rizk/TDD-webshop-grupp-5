@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Nav @cart-btn-clicked="toggleCart" />
-    <Cart class="cart" v-show="cartVisible" />
+    <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
     <Products class="products" :products="products" />
   </div>
 </template>
