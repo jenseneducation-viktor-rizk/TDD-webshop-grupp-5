@@ -55,18 +55,26 @@ export default new Vuex.Store({
         color: "yellow",
       },
     ],
-
     cart: [],
   },
   getters: {
     products(state) {
       return state.listOfProducts;
     },
+    cart(state) {
+      return state.cart;
+    },
     product: (state) => (id) => {
       return state.listOfProducts.find((item) => item.id == id);
     },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+
+  },
+  actions: {
+    // changeQuantity(commit, number){
+
+    // }
+  },
   modules: {},
 });
