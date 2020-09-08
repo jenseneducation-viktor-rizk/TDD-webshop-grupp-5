@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="BigButton">ADD TO CART</div>
+    <button class="BigButton">ADD TO CART</button>
   </div>
 </template>
 

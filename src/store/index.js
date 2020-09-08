@@ -55,6 +55,8 @@ export default new Vuex.Store({
         color: "yellow",
       },
     ],
+
+    cart: [],
   },
   getters: {
     products(state) {
