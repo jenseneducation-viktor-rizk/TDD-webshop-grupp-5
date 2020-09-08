@@ -1,16 +1,16 @@
 <template>
   <div class="cart">
     <p class="close" @click="$emit('cart-btn-clicked')">+</p>
-    <div class="cart-item">
-      <Dropdown :options="quantity" :preSelected="itemQuant" />
-    </div>
+    <CartItems/>
+    
   </div>
 </template>
 
 <script>
-import Dropdown from "@/components/Dropdown.vue"
+// import Dropdown from "@/components/Dropdown.vue"
+import CartItems from "@/components/CartItems.vue"
 export default {
-  components: { Dropdown },
+  components: { CartItems },
   data() {
     return {
       itemQuant: "1",

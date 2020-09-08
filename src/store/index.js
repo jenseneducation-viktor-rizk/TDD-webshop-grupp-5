@@ -61,11 +61,11 @@ export default new Vuex.Store({
     products(state) {
       return state.listOfProducts;
     },
-    product: (state) => (id) => {
-      return state.listOfProducts.find((item) => item.id == id);
-    },
     cart(state) {
       return state.cart;
+    },
+    product: (state) => (id) => {
+      return state.listOfProducts.find((item) => item.id == id);
     },
   },
   mutations: {

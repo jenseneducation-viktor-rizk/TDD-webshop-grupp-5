@@ -31,6 +31,9 @@ const store = new Vuex.Store({
     products(state) {
       return state.listOfProducts;
     },
+    cart(state) {
+      return state.cart;
+    }
   },
 });
 
