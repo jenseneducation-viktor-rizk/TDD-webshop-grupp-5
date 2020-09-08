@@ -57,7 +57,8 @@ describe("Products.vue", () => {
       const wrapper = shallowMount(Products, {
         propsData: {
           products: listOfProducts,
-          selectedSize: "M"
+          selectedSize: "M",
+          selectedColor: "Color"
         }
       });
       const expected = [{
@@ -95,6 +96,35 @@ describe("Products.vue", () => {
 
       expect(wrapper.vm.filteredProducts).toMatchObject(expected)
     })
+
+    it("should show black t-shirts only if it's filtered by black", () => {
+      const wrapper = shallowMount(Products, {
+        propsData: {
+          products: listOfProducts,
+          selectedSize: "Size",
+          selectedColor: "black"
+        }
+      });
+        const expected = [
+          {
+            id: 1,
+            name: "Epic cats with lazers",
+            image: "black.jpg",
+            price: 150,
+            sizes: ["S", "M"],
+            color: "black",
+          },
+          {
+            id: 2,
+            name: "Tupac print",
+            image: "black_2.jpg",
+            price: 200,
+            sizes: ["S", "L"],
+            color: "black",
+          }
+          ];
+        expect(wrapper.vm.filteredProducts).toMatchObject(expected)
+    })
     // it("should be able to switch between sizes with the filtering still working", () => {
     //   const wrapper = shallowMount(Products, {
     //     propsData: {
@@ -102,7 +132,7 @@ describe("Products.vue", () => {
     //       selectedSize: "S"
     //     }
     //   });
-    //   const wrapper
+      
     //   const expected = [{
     //     id: 1,
     //     name: "Epic cats with lazers",

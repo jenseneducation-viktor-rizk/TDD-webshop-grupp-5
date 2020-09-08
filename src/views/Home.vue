@@ -5,13 +5,16 @@
       class="search" 
       @search-text-updated="searchProducts" 
       v-show="searchVisible" />
+    <FilterProducts 
+      @size-filtered="filterSize"
+      @color-filtered="filterColor" />
     <Products
       class="products"
       :selectedSize="selectedSize"
+      :selectedColor="selectedColor"
       :products="filteredProducts !== null ? filteredProducts : products"
     />
     <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
-    <FilterProducts />
   </div>
 </template>
 
@@ -31,7 +34,8 @@ export default {
       cartVisible: false,
       searchVisible: false,
       filteredProducts: null,
-      selectedSize: "",
+      selectedSize: "Size",
+      selectedColor: "Color"
     };
   },
   computed: {
@@ -56,6 +60,12 @@ export default {
         p.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     },
+    filterSize(size) {
+      this.selectedSize = size
+    },
+    filterColor(color) {
+      this.selectedColor = color
+    }
   },
 };
 </script>
