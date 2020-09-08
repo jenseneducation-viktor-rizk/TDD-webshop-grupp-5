@@ -23,9 +23,9 @@ export default {
     top: 65px;
     left: 50%;
     width: 300px;
-    margin-left: -200px;
+    margin-left: -150px;
     input{
-      width: 400px;
+      width: 300px;
       height: 20px;
       border-radius: 5px;
     }
