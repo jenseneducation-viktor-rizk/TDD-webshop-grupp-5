@@ -57,7 +57,8 @@ it("should show all the product items in the products component", () => {
   const wrapper = shallowMount(Products, {
     propsData: {
       products: listOfProducts,
-      selectedSize: ""
+      selectedSize: "",
+      selectedColor: ""
     },
   });
 

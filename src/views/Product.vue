@@ -1,7 +1,7 @@
 <template>
   <div class="product">
-    <Nav @cart-btn-clicked="toggleCart" class="product-nav"/>
-    <ProductItem 
+    <Nav @cart-btn-clicked="toggleCart" class="product-nav" />
+    <ProductItem
       :price="product.price"
       :name="product.name"
       :image="require('@/assets/' + product.image)"
@@ -11,6 +11,7 @@
       <Dropdown :preSelected="'1'" :options="quantityOptions"/> 
     </div>
     <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
+    <BigButton />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import Nav from '@/components/Nav.vue'
 import ProductItem from '@/components/ProductItem.vue'
 import Cart from '@/components/Cart.vue'
 import Dropdown from '@/components/Dropdown.vue'
+import BigButton from "@/components/BigButton.vue";
 
 export default {
   data(){return{
@@ -29,8 +31,9 @@ export default {
     quantityOptions: ["1", "2", "3", "4"]
   }},
   components: {
-    Nav, ProductItem, Cart, Dropdown
+    Nav, ProductItem, Cart, Dropdown, BigButton
   },
+
   created() {
     this.product = this.$store.getters.product(this.$route.params.id)
     this.product.size = this.product.sizes[0]
@@ -40,24 +43,23 @@ export default {
     toggleCart() {
       this.cartVisible = !this.cartVisible;
     },
-  }
-}
-
+  },
+};
 </script>
 
 <style lang="scss">
-  .product{
 
-    .product-item{
-      margin-top: 30px;
+.product {
+  .product-item {
+    margin-top: 30px;
+  }
+  .product-nav {
+    .logo {
+      grid-column-start: 2;
     }
-    .product-nav{
-      .logo{
-        grid-column-start: 2;
-      }
-      .search-btn {
-        display: none;
-      }
+    .search-btn {
+      display: none;
     }
   }
+}
 </style>
