@@ -17,5 +17,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+  .searchContainer {
+    position: fixed;
+    top: 65px;
+    left: 50%;
+    width: 300px;
+    margin-left: -200px;
+    input{
+      width: 400px;
+      height: 20px;
+      border-radius: 5px;
+    }
+  }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <p>search</p>
+    <img @click="$emit('search-btn-clicked')" src="@/assets/search.png" class="search-btn"/>
     <Logo @clicked="toHomePage" />
     <CartButton @clicked="$emit('cart-btn-clicked')" />
   </div>
@@ -35,5 +35,10 @@ export default {
     grid-template-columns: 1fr 5fr 1fr;
     justify-content: center;
     align-items: center;
+    justify-items: center;
+    img{
+      height: 25px;
+      cursor: pointer;
+    }
   }
 </style>

@@ -121,7 +121,7 @@ describe("Cart.vue in Home", () => {
     let cartVisible = cart.element.style.display !== "none";
     expect(cartVisible).toBe(true);
   });
-  it("should be invisible when x-button is clicked", async () => {
+  it("should be invisible when x-button is clicked again", async () => {
     let wrapper = shallowMount(Home, {
       store
     });
@@ -135,4 +135,47 @@ describe("Cart.vue in Home", () => {
     let cartVisible = cart.element.style.display !== "none";
     expect(cartVisible).toBe(false);
   });
+});
+
+describe("Search.vue in Home", () => {
+  
+  it("should be invisible when rendered", async () => {
+    let home = shallowMount(Home, {
+      store
+    });
+    let search = home.find(".search");
+
+    let searchVisible = search.element.style.display !== "none";
+    expect(searchVisible).toBe(false);
+  });
+
+  it("should be visible when search-button is clicked", async () => {
+    let wrapper = shallowMount(Home, {
+      store
+    });
+    let search = wrapper.find(".search");
+
+    wrapper.find("Nav-stub").vm.$emit("search-btn-clicked");
+    await wrapper.vm.$nextTick();
+
+    let searchVisible = search.element.style.display !== "none";
+    expect(searchVisible).toBe(true);
+  });
+
+  it("should be invisible when search-button is clicked again", async () => {
+    let wrapper = shallowMount(Home, {
+      store
+    });
+    let search = wrapper.find(".search");
+
+    wrapper.find("Nav-stub").vm.$emit("search-btn-clicked");
+    await wrapper.vm.$nextTick();
+    wrapper.find("Nav-stub").vm.$emit("search-btn-clicked");
+    await wrapper.vm.$nextTick();
+
+    let searchVisible = search.element.style.display !== "none";
+    expect(searchVisible).toBe(false);
+  });
+
+
 });
