@@ -69,12 +69,13 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-
+    Add_to_cart(state, id) {
+      state.cart.push(id);
+    },
   },
   actions: {
-    // changeQuantity(commit, number){
-
-    // }
+    addToCart(context, id) {
+      context.commit("Add_to_cart", id);
+    },
   },
-  modules: {},
 });
