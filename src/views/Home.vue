@@ -5,13 +5,13 @@
       class="search" 
       @search-text-updated="searchProducts" 
       v-show="searchVisible" />
+    <FilterProducts />
     <Products
       class="products"
       :selectedSize="selectedSize"
       :products="filteredProducts !== null ? filteredProducts : products"
     />
     <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
-    <FilterProducts />
   </div>
 </template>
 
