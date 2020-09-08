@@ -1,7 +1,10 @@
 <template>
   <div class="home">
-    <Nav @cart-btn-clicked="toggleCart" />
-    <Search @search-text-updated="searchProducts" />
+    <Nav @cart-btn-clicked="toggleCart" @search-btn-clicked="toggleSearch" />
+    <Search 
+      class="search" 
+      @search-text-updated="searchProducts" 
+      v-show="searchVisible" />
     <Products
       class="products"
       :selectedSize="selectedSize"
@@ -26,6 +29,7 @@ export default {
   data() {
     return {
       cartVisible: false,
+      searchVisible: false,
       filteredProducts: null,
       selectedSize: "",
     };
@@ -43,6 +47,9 @@ export default {
   methods: {
     toggleCart() {
       this.cartVisible = !this.cartVisible;
+    },
+    toggleSearch() {
+      this.searchVisible = !this.searchVisible;
     },
     searchProducts(searchTerm) {
       this.filteredProducts = this.products.filter((p) =>

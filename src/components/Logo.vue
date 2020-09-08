@@ -11,5 +11,7 @@ export default {
 </script>
 
 <style>
-
+ .logo{
+   cursor: pointer;
+ }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <Nav @cart-btn-clicked="toggleCart" />
+    <Nav @cart-btn-clicked="toggleCart" class="product-nav"/>
     <ProductItem 
       :price="product.price"
       :name="product.name"
@@ -40,6 +40,18 @@ export default {
 
 </script>
 
-<style>
-
+<style lang="scss">
+  .product{
+    .product-item{
+      margin-top: 30px;
+    }
+    .product-nav{
+      .logo{
+        grid-column-start: 2;
+      }
+      .search-btn {
+        display: none;
+      }
+    }
+  }
 </style>
