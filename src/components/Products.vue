@@ -27,10 +27,10 @@ export default {
   computed: {
 
     filterColor() {
-      return this.selectedColor == "" ? this.products : this.products.filter(shirt => shirt.color === this.selectedColor)
+      return this.selectedColor == "Color" ? this.products : this.products.filter(shirt => shirt.color === this.selectedColor)
     },
     filterSize() {
-      return this.selectedSize == "" ? this.filterColor : this.filterColor.filter((shirt) => shirt.sizes.some((size) => size === this.selectedSize))
+      return this.selectedSize == "Size" ? this.filterColor : this.filterColor.filter((shirt) => shirt.sizes.some((size) => size === this.selectedSize))
     },
     filteredProducts() {
       return this.filterSize

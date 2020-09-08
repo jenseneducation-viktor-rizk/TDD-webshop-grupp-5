@@ -7,8 +7,8 @@
       :image="require('@/assets/' + product.image)"
       :imgHeight="'330px'"/>
     <div class="change">
-      <Dropdown :preSelected="product.sizes[0]" :options="product.sizes"/>
-      <Dropdown :preSelected="'1'" :options="quantityOptions"/> 
+      <Dropdown class="change-size" @selected-option='changeSize' :preSelected="product.sizes[0]" :options="product.sizes"/>
+      <Dropdown class="change-quantity" @selected-option='changeQuantity' :preSelected="'1'" :options="quantityOptions"/> 
     </div>
     <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
     <BigButton />
@@ -42,6 +42,13 @@ export default {
   methods: {
     toggleCart() {
       this.cartVisible = !this.cartVisible;
+    },
+    changeSize(size) {
+      this.product.size = size
+    },
+    changeQuantity(quantity) {
+      const number = parseInt(quantity)
+      this.product.quantity = number
     },
   },
 };
