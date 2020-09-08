@@ -55,7 +55,6 @@ export default new Vuex.Store({
         color: "yellow",
       },
     ],
-
     cart: [],
   },
   getters: {
@@ -65,8 +64,18 @@ export default new Vuex.Store({
     product: (state) => (id) => {
       return state.listOfProducts.find((item) => item.id == id);
     },
+    cart(state) {
+      return state.cart;
+    },
   },
-  mutations: {},
-  actions: {},
-  modules: {},
+  mutations: {
+    Add_to_cart(state, id) {
+      state.cart.push(id);
+    },
+  },
+  actions: {
+    addToCart(context, id) {
+      context.commit("Add_to_cart", id);
+    },
+  },
 });
