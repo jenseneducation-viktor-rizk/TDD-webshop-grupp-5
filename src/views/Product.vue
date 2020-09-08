@@ -10,7 +10,7 @@
     <Size :myProduct="product" />
     <Color :color="product.color" />
     <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
-    <BigButton />
+    <BigButton class="BigButton" v-on:click.native="addToCart" />
   </div>
 </template>
 
@@ -22,6 +22,8 @@ import Size from "@/components/Size.vue";
 import Color from "@/components/Color.vue";
 import Cart from "@/components/Cart.vue";
 import BigButton from "@/components/BigButton.vue";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   data() {
@@ -38,15 +40,19 @@ export default {
     Cart,
     BigButton,
   },
+  computed: {
+    ...mapGetters(["cart"]),
+  },
 
   created() {
-    //console.log(this.$store);
     this.product = this.$store.getters.product(this.$route.params.id);
   },
   methods: {
     toggleCart() {
       this.cartVisible = !this.cartVisible;
     },
+
+    ...mapActions(["addToCart"]),
   },
 };
 </script>

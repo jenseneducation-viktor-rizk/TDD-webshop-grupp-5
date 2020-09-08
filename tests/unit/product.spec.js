@@ -1,11 +1,12 @@
 import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
+import Vuex from "vuex";
 import VueRouter from "vue-router";
 import routes from "@/router/default.routes.js";
 import Product from "@/views/Product";
 import Size from "@/components/Size.vue";
 import Color from "@/components/Color.vue";
 import BigButton from "@/components/BigButton.vue";
-//import store from "@/store/index.js";
+// import store from "@/store/index.js";
 
 const testProduct = {
   id: 2,
@@ -80,3 +81,73 @@ it("should show the AddToCart-button in product-view", () => {
   let actual = wrapper.findComponent(BigButton).exists();
   expect(actual).toBe(true);
 });
+
+//////
+
+it("should be able to add a product to cart", async () => {
+  const localVue = createLocalVue();
+  const router = new VueRouter({ routes });
+  localVue.use(VueRouter);
+  localVue.use(Vuex);
+
+  const store = new Vuex.Store({
+    state: {
+      listOfProducts: [
+        {
+          id: 1,
+          name: "Fin T-shirt",
+          image: "black.jpg",
+          price: 150,
+          sizes: ["S", "M", "L"],
+          color: "black",
+        },
+        {
+          id: 2,
+          name: "Ful T-shirt",
+          image: "black.jpg",
+          price: 150,
+          sizes: ["S", "M", "L"],
+          color: "red",
+        },
+      ],
+      cart: [],
+    },
+    getters: {
+      products(state) {
+        return state.listOfProducts;
+      },
+      product: (state) => (id) => {
+        return state.listOfProducts.find((item) => item.id == 1);
+      },
+      cart(state) {
+        return state.cart;
+      },
+    },
+    mutations: {
+      Add_to_cart(state, id) {
+        state.cart.push(id);
+      },
+    },
+    actions: {
+      addToCart(context, id) {
+        context.commit("Add_to_cart", id);
+      },
+    },
+  });
+
+  const wrapper = mount(Product, {
+    store,
+    localVue,
+    router,
+  });
+
+  await wrapper.find(".BigButton").trigger("click");
+  await wrapper.vm.$nextTick();
+
+  expect(wrapper.vm.cart).toBe([1]);
+});
+// await wrapper.find(".BigButton").trigger("click");
+// await wrapper.vm.$nextTick();
+// console.log(store.state.cart);
+// const expected = store.getters.cart(state);
+// expect(expected).toBe([1]);
