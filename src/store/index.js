@@ -67,15 +67,24 @@ export default new Vuex.Store({
     product: (state) => (id) => {
       return state.listOfProducts.find((item) => item.id == id);
     },
+    totalSum(state) {
+      let sum = 0
+      for (let i = 0; i < state.cart.length; i++) {
+        let item = state.cart[i];
+        sum += item.price * item.quantity;
+      }
+      return sum;
+    }
+    
   },
   mutations: {
-    Add_to_cart(state, id) {
-      state.cart.push(id);
+    Add_to_cart(state, product) {
+      state.cart.push(product);
     },
   },
   actions: {
-    addToCart(context, id) {
-      context.commit("Add_to_cart", id);
+    addToCart(context, product) {
+      context.commit("Add_to_cart", product);
     },
   },
 });

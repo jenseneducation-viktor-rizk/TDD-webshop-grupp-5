@@ -1,18 +1,18 @@
 <template>
   <div class="cart-items">
-    <!-- <div v-for="item in getProducts()" :key="item.id" class="cart-item"> -->
-    <ProductItem
-      v-for="item in getProducts()"
-      :key="item.id"
-      :class="'cart-item-' + item.id"
-      :price="item.price"
-      :name="item.name"
-      :image="require('@/assets/'+ item.image)"
-      :imgHeight="'150px'"
-    />
-    <Dropdown class="change-quantity" :preSelected="'1'" :options="quantityOptions" />
-    <p>Ta bort</p>
-    <!-- </div> -->
+    <div v-for="item in cart" :key="item.id" class="cart-container">
+      <ProductItem
+        :class="'cart-item-' + item.id"
+        :price="item.price"
+        :name="item.name"
+        :image="require('@/assets/'+ item.image)"
+        :imgHeight="'150px'"
+      />
+      <p>{{item.size}}</p>
+      <Dropdown class="change-quantity" :preSelected="'' + item.quantity" :options="quantityOptions" />
+      <p>Ta bort</p>
+    </div>
+    <p>Total: {{totalSum}} kr</p>
   </div>
 </template>
 
@@ -26,24 +26,14 @@ export default {
   data() {
     return {
       quantityOptions: ["1", "2", "3", "4"],
-      productsInCart: [],
     };
   },
   created() {},
   computed: {
-    ...mapGetters(["cart", "products"]),
+    ...mapGetters(["cart", "totalSum"]),
   },
   methods: {
-    getProducts() {
-      let productsInCart = [];
-      for (let id in this.cart) {
-        let match = this.products.find((item) => item.id == id);
-        if (match) {
-          productsInCart.push(match);
-        }
-      }
-      return productsInCart;
-    },
+    
     // changeQuantity(payload) {
     //     console.log(payload)
     //     const number = parseInt(payload)
@@ -53,9 +43,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-// .cart-item{
-//     display: flex;
-//     flex-direction: row;
-// }
+<style lang="scss">
+.cart-container{
+      display: flex;
+      flex-direction: row; 
+      justify-content: center;
+      align-items: center;
+      p{
+        margin-top: auto;
+      }
+      select {
+        height: 20px;
+      }
+}
 </style>

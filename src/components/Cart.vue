@@ -2,12 +2,10 @@
   <div class="cart">
     <p class="close" @click="$emit('cart-btn-clicked')">+</p>
     <CartItems/>
-    
   </div>
 </template>
 
 <script>
-// import Dropdown from "@/components/Dropdown.vue"
 import CartItems from "@/components/CartItems.vue"
 export default {
   components: { CartItems },

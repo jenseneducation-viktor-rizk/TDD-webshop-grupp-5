@@ -99,7 +99,7 @@ describe("Product.vue", () => {
       mocks: {
         $store: {
           getters: {
-            product(id) {
+            product() {
               return {
                 id: 1,
                 name: "Epic cats with lazers",
@@ -124,6 +124,10 @@ it("should be able to add a product to cart", async () => {
   const localVue = createLocalVue();
   const router = new VueRouter({ routes });
 
+  const expected = [{"color": "black", "id": 1, "image": "black.jpg", 
+  "name": "Epic cats with lazers", "price": 150, "quantity": 1, 
+  "size": "S", "sizes": ["S", "M"]}]
+
   const wrapper = shallowMount(Product, {
     store,
     localVue,
@@ -138,6 +142,6 @@ it("should be able to add a product to cart", async () => {
   await wrapper.find(".BigButton").trigger("click");
   await wrapper.vm.$nextTick();
 
-  expect(wrapper.vm.cart).toContain(1);
+  expect(wrapper.vm.cart).toMatchObject(expected);
   expect(wrapper.vm.cart.length).toBe(1);
 });
