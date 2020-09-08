@@ -57,6 +57,13 @@ export default {
 <style lang="scss">
 
 .product {
+  .change{
+    margin: 20px;
+    select {
+      width: 50px;
+      margin: 0 20px 0 20px;
+    }
+  }
   .product-item {
     margin-top: 30px;
   }

@@ -55,16 +55,47 @@ export default new Vuex.Store({
         color: "yellow",
       },
     ],
+    cart: [
+      {
+        id: 5,
+        name: "White shirt with print",
+        image: "white.jpg",
+        price: 250,
+        sizes: ["S", "M", "L", "XL"],
+        color: "white",
+        quantity: 1,
+        size: "S"
+      },
+      {
+        id: 6,
+        name: "Print of shirt",
+        image: "yellow.jpg",
+        price: 150,
+        sizes: ["L", "XL"],
+        color: "yellow",
+        quantity: 2,
+        size: "L"
+      },
+    ]
   },
   getters: {
     products(state) {
       return state.listOfProducts;
     },
+    cart(state) {
+      return state.cart;
+    },
     product: (state) => (id) => {
       return state.listOfProducts.find((item) => item.id == id);
     },
   },
-  mutations: {},
-  actions: {},
+  mutations: {
+
+  },
+  actions: {
+    // changeQuantity(commit, number){
+
+    // }
+  },
   modules: {},
 });
