@@ -4,6 +4,7 @@ import store from "@/store/index.js";
 import VueRouter from "vue-router";
 import routes from "@/router/default.routes.js";
 import BigButton from "@/components/BigButton.vue";
+import Vuex from "vuex";
 
 describe("Product.vue", () => {
   it("should give the tupac t-shirt a size value of S and quantity 1 when created", async () => {
@@ -171,7 +172,7 @@ it("should be able to add a product to cart", async () => {
     },
   });
 
-  const wrapper = mount(Product, {
+  const wrapper = shallowMount(Product, {
     store,
     localVue,
     router,
@@ -180,7 +181,8 @@ it("should be able to add a product to cart", async () => {
   await wrapper.find(".BigButton").trigger("click");
   await wrapper.vm.$nextTick();
 
-  expect(wrapper.vm.cart).toBe([1]);
+  expect(wrapper.vm.cart).toContain(1);
+  expect(wrapper.vm.cart.length).toBe(1);
 });
 // await wrapper.find(".BigButton").trigger("click");
 // await wrapper.vm.$nextTick();

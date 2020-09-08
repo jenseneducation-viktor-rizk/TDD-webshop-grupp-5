@@ -22,7 +22,7 @@
       />
     </div>
     <Cart @cart-btn-clicked="toggleCart" class="cart" v-show="cartVisible" />
-    <BigButton class="BigButton" v-on:click.native="addToCart" />
+    <BigButton class="BigButton" v-on:click.native="addToCart(product.id)" />
   </div>
 </template>
 
