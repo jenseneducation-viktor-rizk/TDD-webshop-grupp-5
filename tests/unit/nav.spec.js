@@ -4,7 +4,7 @@ import Nav from "@/components/Nav.vue";
 import Products from "@/components/Products.vue";
 import VueRouter from "vue-router";
 import routes from "@/router/default.routes.js";
-import store from '@/store/index.js'
+import store from "@/store/index.js";
 
 const listOfProducts = [
   {
@@ -13,7 +13,7 @@ const listOfProducts = [
     image: "black.jpg",
     price: 150,
     sizes: ["S", "M", "L"],
-    color: 'black'
+    color: "black",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const listOfProducts = [
     image: "black_2.jpg",
     price: 200,
     sizes: ["S", "M", "L"],
-    color: 'black'
+    color: "black",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const listOfProducts = [
     image: "grey.jpg",
     price: 250,
     sizes: ["S", "M", "L"],
-    color: 'grey'
+    color: "grey",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ const listOfProducts = [
     image: "red.jpg",
     price: 100,
     sizes: ["S", "M", "L"],
-    color: 'red'
+    color: "red",
   },
   {
     id: 5,
@@ -45,7 +45,7 @@ const listOfProducts = [
     image: "white.jpg",
     price: 250,
     sizes: ["S", "M", "L"],
-    color: 'white'
+    color: "white",
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ const listOfProducts = [
     image: "yellow.jpg",
     price: 150,
     sizes: ["S", "M", "L"],
-    color: 'yellow'
+    color: "yellow",
   },
 ];
 
@@ -87,22 +87,21 @@ describe("Nav.vue", () => {
       propsData: {
         products: listOfProducts,
         selectedSize: "Size",
-        selectedColor: "Color"
-      }
+        selectedColor: "Color",
+      },
     });
 
     wrapper.find(".item-4").trigger("click");
     await wrapper.vm.$nextTick();
 
-    expect(wrapper.vm.$route.path).toBe('/product/4');
+    expect(wrapper.vm.$route.path).toBe("/product/4");
   });
 });
 
 describe("Cart.vue in Home", () => {
-  
   it("should be invisible when rendered", async () => {
     let home = shallowMount(Home, {
-      store
+      store,
     });
     let cart = home.find(".cart");
 
@@ -112,7 +111,7 @@ describe("Cart.vue in Home", () => {
 
   it("should be visible when cart-button is clicked", async () => {
     let wrapper = shallowMount(Home, {
-      store
+      store,
     });
     let cart = wrapper.find(".cart");
 
@@ -124,7 +123,7 @@ describe("Cart.vue in Home", () => {
   });
   it("should be invisible when x-button is clicked again", async () => {
     let wrapper = shallowMount(Home, {
-      store
+      store,
     });
     let cart = wrapper.find(".cart");
 
@@ -139,10 +138,9 @@ describe("Cart.vue in Home", () => {
 });
 
 describe("Search.vue in Home", () => {
-  
   it("should be invisible when rendered", async () => {
     let home = shallowMount(Home, {
-      store
+      store,
     });
     let search = home.find(".search");
 
@@ -152,7 +150,7 @@ describe("Search.vue in Home", () => {
 
   it("should be visible when search-button is clicked", async () => {
     let wrapper = shallowMount(Home, {
-      store
+      store,
     });
     let search = wrapper.find(".search");
 
@@ -165,7 +163,7 @@ describe("Search.vue in Home", () => {
 
   it("should be invisible when search-button is clicked again", async () => {
     let wrapper = shallowMount(Home, {
-      store
+      store,
     });
     let search = wrapper.find(".search");
 
@@ -177,6 +175,4 @@ describe("Search.vue in Home", () => {
     let searchVisible = search.element.style.display !== "none";
     expect(searchVisible).toBe(false);
   });
-
-
 });
