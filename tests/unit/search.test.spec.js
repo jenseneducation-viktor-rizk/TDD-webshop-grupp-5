@@ -33,6 +33,9 @@ const store = new Vuex.Store({
     },
     cart(state) {
       return state.cart;
+    },
+    totalSum() {
+      return "hej"
     }
   },
 });
