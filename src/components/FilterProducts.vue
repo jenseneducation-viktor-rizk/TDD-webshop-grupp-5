@@ -10,8 +10,8 @@ import Dropdown from '@/components/Dropdown.vue'
 export default {
     components: { Dropdown },
     data(){return{
-        sizes: ["", "S", "M", "L", "XL"],
-        colors: ["", "black", "grey", "red", "yellow", "white"]
+        sizes: ["Size", "S", "M", "L", "XL"],
+        colors: ["Color", "black", "grey", "red", "yellow", "white"]
     }},
     methods: {
         emitFilterSize(size) {

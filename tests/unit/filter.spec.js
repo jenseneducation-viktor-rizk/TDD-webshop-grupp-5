@@ -58,7 +58,7 @@ describe("Products.vue", () => {
         propsData: {
           products: listOfProducts,
           selectedSize: "M",
-          selectedColor: ""
+          selectedColor: "Color"
         }
       });
       const expected = [{
@@ -101,7 +101,7 @@ describe("Products.vue", () => {
       const wrapper = shallowMount(Products, {
         propsData: {
           products: listOfProducts,
-          selectedSize: "",
+          selectedSize: "Size",
           selectedColor: "black"
         }
       });

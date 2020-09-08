@@ -34,8 +34,8 @@ export default {
       cartVisible: false,
       searchVisible: false,
       filteredProducts: null,
-      selectedSize: "",
-      selectedColor: ""
+      selectedSize: "Size",
+      selectedColor: "Color"
     };
   },
   computed: {
